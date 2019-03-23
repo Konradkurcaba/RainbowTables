@@ -5,4 +5,5 @@ import java.rmi.RemoteException;
 
 public interface SendHelloIf extends Remote {
     void sendMessage() throws RemoteException;
+    byte[] compute(String[] aWords) throws RemoteException;
 }

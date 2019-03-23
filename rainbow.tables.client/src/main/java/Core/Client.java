@@ -4,6 +4,7 @@ import remote.interfaces.SendHelloIf;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.Arrays;
 
 public class Client {
 
@@ -11,8 +12,11 @@ public class Client {
 
         try {
             Registry registry = LocateRegistry.getRegistry(null);
+            System.out.print(Arrays.toString(registry.list()));
+
             SendHelloIf stub = (SendHelloIf) registry.lookup("SendHelloIf");
-            stub.sendMessage();
+            byte[] lool = stub.compute(new String[100]);
+            System.out.print(Arrays.toString(lool));
         }catch (Exception aEx)
         {
 
